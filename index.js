@@ -9,7 +9,7 @@ const logger = require('./config/logger');
 const employees = require('./employees/routes/employees');
 const users = require('./user/routes/users');
 const auth = require('./auth/routes/auth');
-
+const bodyParser = require('body-parser');
 
 
 mongoose
@@ -56,7 +56,9 @@ if(app.get('env') === 'development') {
     app.use(helmet()); // بتحمي الhttp
     app.use(morgan('tiny')); // بتعمل log لكل حاجه
 }
-app.use(express.json()); // to convert any request to json // and this is a type of middlewre
+// app.use(express.json()); // to convert any request to json // and this is a type of middlewre
+// app.use(bodyParser());
+app.use(bodyParser.json());
 app.use(compression());
 app.get('/', (req, res) => {
     res.setHeader('content-type', 'text/html');
