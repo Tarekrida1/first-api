@@ -146,5 +146,5 @@ app.use('/auth', auth);
 
 
 
-const PORT =  8082;
+const PORT =  8080;
 app.listen(PORT, ()=> { logger.info(`app is listening on port ${PORT}`)})
