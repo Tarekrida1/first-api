@@ -146,5 +146,10 @@ app.use('/auth', auth);
 
 
 
-const PORT =  8080;
-app.listen(PORT, ()=> { logger.info(`app is listening on port ${PORT}`)})
+const PORT = process.env.PORT || 8080
+
+const  server = app.listen(
+  PORT,
+  console.log(`Server Rurining in ${process.env.NODE_DEV} mode on port ${PORT}`)
+);
+
